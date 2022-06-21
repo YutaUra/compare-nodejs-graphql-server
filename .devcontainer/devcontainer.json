@@ -1,0 +1,14 @@
+{
+	"name": "Compare Node.js GraphQL Server",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint"
+			]
+		}
+	},
+	"remoteUser": "node"
+}
