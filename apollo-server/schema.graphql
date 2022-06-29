@@ -1,0 +1,39 @@
+type DateTime {
+  iso: String!
+}
+
+type Todo {
+  id: ID!
+  status: TodoStatus!
+  text: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+enum TodoStatus {
+  TODO
+  IN_PROGRESS
+  COMPLETE
+}
+
+type Query {
+  getTodo(id: ID!): Todo!
+  listTodos: [Todo!]!
+}
+
+input CreateTodoInput {
+  status: TodoStatus
+  text: String!
+}
+
+input UpdateTodoInput {
+  id: ID!
+  status: TodoStatus
+  text: String
+}
+
+type Mutation {
+  createTodo(input: CreateTodoInput!): Todo!
+  updateTodo(input: UpdateTodoInput!): Todo!
+  deleteTodo(id: ID!): Todo!
+}

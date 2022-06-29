@@ -1,0 +1,14 @@
+schema: ./schema.graphql
+generates:
+  src/generate/graphql.ts:
+    plugins:
+      - add:
+          content: // @ts-nocheck
+      - typescript
+      - typescript-resolvers
+    config:
+      mappers:
+        DateTime: Date
+        Todo: '@prisma/client#Todo'
+      enumValues:
+        TodoStatus: '@prisma/client#TodoStatus'

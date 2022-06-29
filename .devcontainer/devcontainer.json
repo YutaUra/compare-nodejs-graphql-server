@@ -6,7 +6,11 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"dbaeumer.vscode-eslint"
+				"dbaeumer.vscode-eslint",
+				"esbenp.prettier-vscode",
+				"GraphQL.vscode-graphql",
+				"GitHub.copilot",
+				"Prisma.prisma"
 			]
 		}
 	},
