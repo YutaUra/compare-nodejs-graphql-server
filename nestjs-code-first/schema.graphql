@@ -1,0 +1,44 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Todo {
+  id: ID!
+  text: String!
+  status: TodoStatus!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+enum TodoStatus {
+  TODO
+  IN_PROGRESS
+  COMPLETE
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  getTodo(id: ID!): Todo!
+  listTodos: [Todo!]!
+}
+
+type Mutation {
+  createTodo(input: CreateTodoInput!): Todo!
+  updateTodo(input: UpdateTodoInput!): Todo!
+  deleteTodo(id: ID!): Todo!
+}
+
+input CreateTodoInput {
+  text: String!
+  status: TodoStatus!
+}
+
+input UpdateTodoInput {
+  text: String
+  status: TodoStatus
+  id: ID!
+}

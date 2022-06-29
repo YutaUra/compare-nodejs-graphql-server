@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator nestjs {
+  provider           = "prisma-nestjs-graphql"
+  output             = "../src/generated"
+  noAtomicOperations = true
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TodoStatus {
+  TODO
+  IN_PROGRESS
+  COMPLETE
+}
+
+model Todo {
+  id        String     @id
+  text      String
+  status    TodoStatus
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @default(now()) @updatedAt
+}
